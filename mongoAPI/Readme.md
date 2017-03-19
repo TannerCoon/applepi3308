@@ -23,7 +23,7 @@ sudo service mongod start
 
 change dest = "" in moveold.py
 
-In directory:
+Run in directory:
 
 ./pullAPI2json
 
