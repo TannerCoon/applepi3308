@@ -147,4 +147,4 @@ echo "Starting Wolf_Creek.sh"
 echo "Writing to database"
 mongoimport -d snowDB -c mycol --mode merge --file Wolf_Creek.json
 
-echo "Completed/n"
+echo "Completed Database Update"
