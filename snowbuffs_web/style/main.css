@@ -1,0 +1,48 @@
+body{
+    height: auto;
+    width: 954px;
+    padding: 3px;
+    margin: 3px auto;
+    float: none;
+    overflow: overlay;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;          
+}
+
+#header {
+    background-color:#CAFFFF;
+    color:black;
+    text-align:center;
+    padding:5px;
+}
+
+#section {
+    width:350px;
+    float:left;
+    padding:10px;        
+}
+
+ th
+ {
+
+ } 
+
+ td
+ {
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    height: 20px;
+ } 
