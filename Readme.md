@@ -7,9 +7,12 @@ sudo apt-get install python-pip
 
 pip install https://github.com/hay/xml2json/zipball/master
 
-#Install pymongo
+#Install pip stuff
 
-pip install pymongo
+sudo pip install pymongo
+sudo pip install requests
+sudo pip install xmltodict
+sudo pip install dpath
 
 #Install mongodb 3.4 Ubuntu 16.04:
 
@@ -22,6 +25,12 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 
 sudo service mongod start
+
+
+
+
+
+#Ignore lower:
 
 #Run pullAPI2json.sh
 
