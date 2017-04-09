@@ -7,6 +7,10 @@ sudo apt-get install python-pip
 
 pip install https://github.com/hay/xml2json/zipball/master
 
+#Install pymongo
+
+pip install pymongo
+
 #Install mongodb 3.4 Ubuntu 16.04:
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
