@@ -1,11 +1,10 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 import urllib.request
 import json
-import cgitb
-cgitb.enable()
 
-print("Content-Type: text/html")
-print() 
+
+print "Content-Type: text/html"
+print
 content = '''
 <!DOCTYPE HTML>
 <html>
@@ -37,3 +36,4 @@ content = '''
 </body>
 </html>
 '''
+print content

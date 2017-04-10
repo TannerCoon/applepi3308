@@ -1,0 +1,35 @@
+##Start up Mongo:
+
+sudo service mongod start
+
+
+##Run API puller:
+
+find apiPuller.py in: /snowbuffs/mongoAPI/
+
+to run: python apiPuller.py
+
+##Run robomongo:
+
+run: <installedrobomongodir>/bin/robomongo
+connect to localhost
+select snow database
+open Collections folder
+double-click buffs
+
+##Show website
+
+go to: snowbuffs3308.herokuapp.com
+
+Info about site:
+
+Our mongoDB instance is up on mLab
+mLab is a cloud based mongo site
+We are accessing the data for our website through an api which pulls data from mLab
+
+##PHP code:
+
+you can find php codes in /snowbuffs/snowbuffs_web/PHP/
+these contain our website code
+
+
