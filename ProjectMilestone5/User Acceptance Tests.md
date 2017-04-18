@@ -2,10 +2,15 @@
 
 # UAT Test1: 
 Test run information: 
+
 Test name: Mobile phone support test
+
 Dates of test:
+
 Running environment: Any mobile phone can connect to websites.
+
 Prerequisites for this test: None
+
 Software Versions: No special needed
 
 Step1: Use mobile phone enter the snowbuff website
@@ -28,10 +33,15 @@ Expected results: All pages suit the phone screen, and there is no incorrect inf
 
 # UAT Test2: 
 Test run information: 
+
 Test name: GPS support test
+
 Dates of test:
+
 Running environment: Any mobile phone can connect to websites, the mobile phone need support GPS.
+
 Prerequisites for this test: None
+
 Software Versions: No special needed
 
 Step1: Use mobile phone enter the snowbuff website
@@ -57,10 +67,15 @@ Expected results: Maps shows a line from current location to the selective ski r
 
 # UAT Test3: 
 Test run information: 
+
 Test name: PC support test
+
 Dates of test:
-Running environment: Any desktop or laptop, 
+
+Running environment: Any desktop or laptop can connect to website
+
 Prerequisites for this test: None
+
 Software Versions: The Browser need support HTML5
 
 Step1: Use Browser enter the snowbuff website
