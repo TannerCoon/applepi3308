@@ -10,8 +10,6 @@ import os
 import shutil
 import pymongo
 from pymongo import MongoClient
-from bs4 import BeautifulSoup
-
 
 cwd = os.getcwd()
 dest = cwd + '/PastData/'
@@ -76,81 +74,22 @@ def writeToJson(name, report):
     with open('%s.json' % name, 'w') as outfile:
         json.dump(report, outfile)
 
-def pullSlopeReportToJson():
-	arapUrl = "http://coloradoski.com/snow-report"
-	arapWeb = requests.get(arapUrl)
-
-	data = []
-
-	soup = BeautifulSoup(arapWeb.text, "html.parser")
-	table = soup.find('table', attrs={"id":"snow-report"})
-	table_body = table.find('tbody')
-
-	rows = table_body.find_all('tr')
-	for row in rows:
-			cols = row.find_all('td')
-			cols = [ele.text.strip() for ele in cols]
-			data.append([ele for ele in cols if ele])
-	return data
-
-def resortNumberMatch(x):
-	return {
-	0: 0,
-	1: 1,
-	#3: 5,
-	#6: 6,
-	#7: 8,
-	#8: 9,
-	#11: 10,
-	#13: 13,
-	15: 2,
-	#16: 14,
-	#17: 15,
-	#18: 16,
-	#19: 7,
-	#20: 17,
-	#22: 18,
-	#23: 19,
-	#24: 20,
-	#25: 11,
-	27: 3,
-	#28: 21,
-	}.get(x,-1)
-	
-def appendRunInfo(inReport, data, resNum):
-	a = data[resNum][5]
-	b = data[resNum][6]
-	c = data[resNum][7]
-	d = data[resNum][8]
-	temp_dict = {"run_report":{"lifts_open": a, "beginner_open": b,
-				 "intermediate_open": c, "advanced_open": d}}
-	inReport.update(temp_dict)
-	return inReport
 
 def main():
     for f in files:
         if (f.endswith("json")):
             copyOldJson(f)
-    slopeData = pullSlopeReportToJson()
     resortFile = 'reports.txt'
     with open(resortFile, 'r') as apis:
         i = 0
         for line in apis:
             name, api = splitLine(line)
             report = pullApi(api)
-            resortIndex = resortNumberMatch(i)
-            if (resortIndex != -1):
-				print slopeData[resortIndex][0]
-				report = appendRunInfo(report, slopeData, resortIndex)
             objId = addID(i, report)
             addToMongo(objId, report)
             i = i + 1
             writeToJson(name, report)
-#i == 0 or i == 1 or i == 3 or i == 6 or
-#i == 7 or i == 8 or i == 11 or i == 13 or
-#i == 15 or i == 16 or i == 17 or i == 18 or 
-#i == 19 or i == 20 or i == 22 or i == 23 or 
-#i == 24 or i == 25 or i == 27 or i == 28
+
 
 if __name__ == "__main__":
     main()
