@@ -88,41 +88,50 @@ def pullSlopeReportToJson():
 
 	rows = table_body.find_all('tr')
 	for row in rows:
-			cols = row.find_all('td')
-			cols = [ele.text.strip() for ele in cols]
-			data.append([ele for ele in cols if ele])
+		cols = row.find_all('td')
+		cols = [ele.text.strip() for ele in cols]
+		data.append([ele for ele in cols if ele])
 	return data
 
 def resortNumberMatch(x):
 	return {
 	0: 0,
 	1: 1,
-	#3: 5,
-	#6: 6,
-	#7: 8,
-	#8: 9,
-	#11: 10,
-	#13: 13,
+	3: 5,
+	6: 6,
+	7: 8,
+	8: 9,
+	11: 10,
+	13: 13,
 	15: 2,
-	#16: 14,
-	#17: 15,
-	#18: 16,
-	#19: 7,
-	#20: 17,
-	#22: 18,
-	#23: 19,
-	#24: 20,
-	#25: 11,
+	16: 14,
+	17: 15,
+	18: 16,
+	19: 7,
+	20: 17,
+	22: 18,
+	23: 19,
+	24: 20,
+	25: 11,
 	27: 3,
-	#28: 21,
+	28: 21,
 	}.get(x,-1)
 	
 def appendRunInfo(inReport, data, resNum):
-	a = data[resNum][5]
-	b = data[resNum][6]
-	c = data[resNum][7]
-	d = data[resNum][8]
-	temp_dict = {"run_report":{"lifts_open": a, "beginner_open": b,
+	tempstr = data[resNum][0]
+	if(tempstr[-8:] != '(Closed)'):
+		a = data[resNum][5]
+		b = data[resNum][6]
+		c = data[resNum][7]
+		d = data[resNum][8]
+		e = 'Currently Open'		
+	else:
+		a = 'Not available'
+		b = 'Not available'
+		c = 'Not available'
+		d = 'Not available'
+		e = 'Closed'
+	temp_dict = {"run_report":{"resort_open": e, "lifts_open": a, "beginner_open": b,
 				 "intermediate_open": c, "advanced_open": d}}
 	inReport.update(temp_dict)
 	return inReport
@@ -140,8 +149,7 @@ def main():
             report = pullApi(api)
             resortIndex = resortNumberMatch(i)
             if (resortIndex != -1):
-				print slopeData[resortIndex][0]
-				report = appendRunInfo(report, slopeData, resortIndex)
+		report = appendRunInfo(report, slopeData, resortIndex)
             objId = addID(i, report)
             addToMongo(objId, report)
             i = i + 1
