@@ -156,8 +156,8 @@ var chart = AmCharts.makeChart("gaugediv", {
     "radius": "170%"
   }]
 });
-randomValue()
-// setInterval(randomValue, 2000);
+
+setInterval(randomValue, 2000);
 
 // set random value
 function randomValue() {
