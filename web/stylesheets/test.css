@@ -1,0 +1,91 @@
+
+
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+body{
+  background-color: #ffffff;
+	color: #000000;
+}
+
+/*header{
+	padding: 5px 0px 5px 0px;
+	color: white;
+	background-color: #353535;
+	max-width: 100%;
+	text-align: center;
+	font-size: 30;
+}*/
+
+#map{
+	height: 50%;
+	width: 50%;
+	/*position: fixed;*/
+	right: 0px;
+}
+
+footer {
+    padding: 1em;
+    color: white;
+    background-color: #404040;
+    text-align: center;
+    /*clear: left*/
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+/*Weather*/
+#chartdiv {
+	width		: 100%;
+	height		: 500px;
+	font-size	: 11px;
+  background-color : #555555;
+}
+/*POW Optimizer*/
+#gaugediv {
+  width: 500px;
+  height: 500px;
+	/*background-color: #777777;*/
+}
+
+.amcharts-graph-g1 {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 500%;
+  stroke-dasharray: 0 \0/;    /* fixes IE prob */
+  stroke-dashoffset: 0 \0/;   /* fixes IE prob */
+  -webkit-animation: am-draw 20s;
+  animation: am-draw 20s;
+}
+
+.amcharts-graph-g2 {
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 500%;
+  stroke-dasharray: 0 \0/;    /* fixes IE prob */
+  stroke-dashoffset: 0 \0/;   /* fixes IE prob */
+  -webkit-animation: am-draw 30s;
+  animation: am-draw 30s;
+}
+
+@-webkit-keyframes am-draw {
+    0% {
+        stroke-dashoffset: 500%;
+    }
+    100% {
+        stroke-dashoffset: 0%;
+    }
+}
+@keyframes am-draw {
+    0% {
+        stroke-dashoffset: 500%;
+    }
+    100% {
+        stroke-dashoffset: 0%;
+    }
+}
