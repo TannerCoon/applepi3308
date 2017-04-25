@@ -2,8 +2,8 @@
 <?php
 include 'functions.php';
 
-$id = 0;
-$dest = ("Aspen,CO");
+$id = 15;
+$dest = ("Loveland,CO");
 $conditions = get_conditions($id);
 $daymax = day_temp($id);
 $nightmin = night_temp($id);
@@ -241,8 +241,14 @@ function initMap() {
 <div id="nav">
   <div id="map"></div>
 </div>
-
-<div id="gaugediv"></div>
+<?php
+  if ($resort_status =="Closed"){
+    echo "<img src=\"images/closed.jpg\" alt=\"Mountain View\" style=\"width:304px;height:228px;\">";
+  }else{
+    echo "<div id=\"gaugediv\"></div>";
+  }
+?>
+<!-- <div id="gaugediv"></div> -->
 <div id="chartdiv"></div>
 
 <footer>Copyright &copy; Snowbuffs.team</footer>
